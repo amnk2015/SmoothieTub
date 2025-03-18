@@ -1,11 +1,17 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmoothieTub.MainPage"
-             BackgroundColor="White">
+             x:Class="SmoothieTub.SubCategoryPage"
+             Title="{Binding CategoryName}">
 
     <ScrollView>
         <VerticalStackLayout Padding="10">
-            <CollectionView ItemsSource="{Binding Categories}" SelectionMode="None" >
+            <!-- Subcategory Title -->
+            <Label Text="{Binding CategoryName}" FontSize="24" 
+                   FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
+
+            <!-- Subcategory List -->
+            <CollectionView ItemsSource="{Binding Subcategories}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
@@ -14,20 +20,23 @@
                     <DataTemplate>
                         <Frame Padding="0" CornerRadius="10" HasShadow="False" Margin="0,5">
                             <Grid>
-                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+                                <!-- Background Image -->
+                                <Image Source="{Binding ImageFile}" Aspect="AspectFill"/>
                                 <BoxView BackgroundColor="Black" Opacity="0.4"/>
+
+                                <!-- Subcategory Name -->
                                 <Label Text="{Binding Name}" 
                                        FontSize="20" 
                                        TextColor="White" 
                                        FontAttributes="Bold"
                                        VerticalOptions="Center" 
                                        HorizontalOptions="Center"/>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="{Binding}" />
-                                </Grid.GestureRecognizers>
                             </Grid>
-                     
 
+                            <!-- Tap Gesture Recognizer -->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSubCategoryTapped" CommandParameter="{Binding}" />
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

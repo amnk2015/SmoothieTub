@@ -1,0 +1,48 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmoothieTub.RecipeListPage"
+             Title="{Binding SubcategoryName}">
+
+    <StackLayout Padding="10">
+
+        <!-- Subcategory Title -->
+        <Label Text="{Binding SubcategoryName}" FontSize="24" 
+               FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
+
+        <!-- Search Bar (Optional) -->
+        <SearchBar Placeholder="Search recipes..." TextChanged="OnSearchTextChanged"/>
+
+        <!-- Recipe Grid View -->
+        <CollectionView ItemsSource="{Binding Recipes}" SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+                <!-- Span="2" makes it a 2-column grid -->
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" CornerRadius="10" HasShadow="False" Margin="5">
+                        <Grid>
+                            <!-- Recipe Image -->
+                            <Image Source="{Binding ImageFile}" Aspect="AspectFill"/>
+
+                            <!-- Dark Overlay for Text Readability -->
+                            <BoxView BackgroundColor="Black" Opacity="0.3"/>
+
+                            <!-- Recipe Name -->
+                            <Label Text="{Binding Name}" 
+                                   FontSize="18" TextColor="White" 
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center"/>
+                        </Grid>
+                        <!-- Tap Gesture for Recipe Selection -->
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRecipeTapped" CommandParameter="{Binding}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
