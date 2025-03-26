@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmoothieTub.RecipeDetailPage"
-             Title="{Binding Name}">
+                  Shell.NavBarIsVisible="False"
+            >
 
     <ScrollView>
         <StackLayout Padding="10">
@@ -20,25 +21,44 @@
                    HorizontalOptions="Center" Margin="10,0"/>
 
             <!-- Ingredients Section -->
-            <Label Text="Ingredients:" FontSize="20" FontAttributes="Bold" Margin="0,20,0,5"/>
+            <Label Text="📌 Ingredients:" FontSize="20" FontAttributes="Bold" Margin="0,5,0,5" Padding="5" />
             <CollectionView ItemsSource="{Binding Ingredients}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding .}" FontSize="16"/>
+                        <Label Text="{Binding .}" FontSize="16" Padding="5"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
             <!-- Instructions Section -->
-            <Label Text="Instructions:" FontSize="20" FontAttributes="Bold" Margin="0,20,0,5"/>
+            <Label Text="🌀 Instructions:" FontSize="20" FontAttributes="Bold" Margin="0,15,0,5"/>
             <CollectionView ItemsSource="{Binding Instructions}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding .}" FontSize="16"/>
+                        <Label Text="{Binding .}" FontSize="16" Padding="5"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!-- Instructions Section -->
+            <Label Text="💪 Health Benefits:" FontSize="20" FontAttributes="Bold" Margin="0,15,0,5"/>
+            <CollectionView ItemsSource="{Binding HealthBenefits}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" FontSize="16" Padding="5"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

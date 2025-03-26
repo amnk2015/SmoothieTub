@@ -37,15 +37,16 @@ namespace SmoothieTub
 
         private void LoadCategories()
         {
-            Categories.Add(new Category { Name = "Health-Focused Smoothies", ImageUrl = "health_smoothies.png" });
-            Categories.Add(new Category { Name = "Nutrient-Based Smoothies", ImageUrl = "nutrient_smoothies.png" });
-            Categories.Add(new Category { Name = "Fruit-Based Smoothies", ImageUrl = "fruit_smoothies.png" });
-            Categories.Add(new Category { Name = "Veggie-Based Smoothies", ImageUrl = "veggie_smoothies.png" });
-            Categories.Add(new Category { Name = "Special Diet Smoothies", ImageUrl = "diet_smoothies.png" });
-            Categories.Add(new Category { Name = "Meal Replacement Smoothies", ImageUrl = "meal_energy_smoothies.png" });
-            Categories.Add(new Category { Name = "Dessert & Indulgent Smoothies", ImageUrl = "dessert_smoothies.png" });
-            Categories.Add(new Category { Name = "Veggie-Based Smoothies", ImageUrl = "veggie_smoothies.png" });
-            Categories.Add(new Category { Name = "Seasonal Smoothies", ImageUrl = "seasonal.png" }); 
+            string paths = "https://raw.githubusercontent.com/amnk2015/imagestorage/main/";
+            Categories.Add(new Category { Name = "Health-Focused Smoothies", ImageUrl = paths + "health_smoothies.png" });
+            Categories.Add(new Category { Name = "Nutrient-Based Smoothies", ImageUrl = paths + "nutrient_smoothies.png" });
+            //Categories.Add(new Category { Name = "Fruit-Based Smoothies", ImageUrl = paths + "fruit_smoothies.png" });
+            //Categories.Add(new Category { Name = "Veggie-Based Smoothies", ImageUrl = paths + "veggie_smoothies.png" });
+            //Categories.Add(new Category { Name = "Special Diet Smoothies", ImageUrl = paths + "diet_smoothies.png" });
+            //Categories.Add(new Category { Name = "Meal Replacement Smoothies", ImageUrl = paths + "meal_energy_smoothies.png" });
+            //Categories.Add(new Category { Name = "Dessert & Indulgent Smoothies", ImageUrl = paths + "dessert_smoothies.png" });
+            //Categories.Add(new Category { Name = "Veggie-Based Smoothies", ImageUrl = paths + "veggie_smoothies.png" });
+            //Categories.Add(new Category { Name = "Seasonal Smoothies", ImageUrl = paths + "seasonal.png" }); 
 
         }
 

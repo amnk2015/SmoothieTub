@@ -17,30 +17,30 @@ namespace SmoothieTub
         {
             if (sender is Frame frame && frame.BindingContext is RecipeModel selectedRecipe)
             {
-                await Navigation.PushAsync(new RecipeDetailPage(selectedRecipe));
+                await Navigation.PushAsync(new RecipeDetailPage(selectedRecipe.Name));
             }
         }
 
 
-        // Handle Search Bar Input
-        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
-        {
-            var viewModel = BindingContext as RecipeListViewModel;
-            if (viewModel != null)
-            {
-                string searchText = e.NewTextValue.ToLower();
+        //// Handle Search Bar Input
+        //private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    var viewModel = BindingContext as RecipeListViewModel;
+        //    if (viewModel != null)
+        //    {
+        //        string searchText = e.NewTextValue.ToLower();
 
-                // Filter recipes dynamically
-                var filteredRecipes = viewModel.AllRecipes
-                    .Where(recipe => recipe.Name.ToLower().Contains(searchText))
-                    .ToList();
+        //        // Filter recipes dynamically
+        //        var filteredRecipes = viewModel.AllRecipes
+        //            .Where(recipe => recipe.Name.ToLower().Contains(searchText))
+        //            .ToList();
 
-                viewModel.Recipes.Clear();
-                foreach (var recipe in filteredRecipes)
-                {
-                    viewModel.Recipes.Add(recipe);
-                }
-            }
-        }
+        //        viewModel.Recipes.Clear();
+        //        foreach (var recipe in filteredRecipes)
+        //        {
+        //            viewModel.Recipes.Add(recipe);
+        //        }
+        //    }
+        //}
     }
 }

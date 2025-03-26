@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using SmoothieTub.Models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -23,19 +24,33 @@ namespace SmoothieTub.ViewModels
 
         private void LoadRecipes(string subcategoryName)
         {
+
+            string paths = "https://raw.githubusercontent.com/amnk2015/imagestorage/main/";
             // Sample recipes (Replace with Firebase data)
             if (subcategoryName == "Detox Smoothies")
             {
-                AddRecipe("Green Detox", "detox.png");
-                AddRecipe("Cucumber Cleanse", "fruit_smoothies.png");
-                AddRecipe("Lemon Ginger Flush", "low.png");
+                AddRecipe("Detox Smoothies Special", paths+"detox.png"); 
             }
             else if (subcategoryName == "Weight Loss Smoothies")
             {
-                AddRecipe("Fat Burner", "fat_burner.png");
-                AddRecipe("Berry Slim", "berry_slim.png");
-                AddRecipe("Metabolism Booster", "metabolism_boost.png");
+                AddRecipe("Weight Loss Smoothies Special", paths + "weightloss_special.png"); 
             }
+            else if (subcategoryName == "Immunity Boosting Smoothies")
+            {
+                AddRecipe("Citrus Power Punch", paths + "citrus_power_punch.jpg");
+                AddRecipe("Berry Antioxidant Blast", paths + "berry_antioxidant_blast.jpg");
+            }
+            else if (subcategoryName == "Anti-Inflammatory Smoothies")
+            {
+                AddRecipe("Anti-Inflammatory Smoothies Special", paths + "anti_inflammatory.png");
+            }
+            else if (subcategoryName == "High-Protein Smoothies")
+            {
+                AddRecipe("High-Protein Smoothies Special", paths + "smoothie63.jpg");
+                AddRecipe("High-Fiber Smoothies Special", paths + "smoothie63.jpg");
+            }
+            
+
         }
 
         private void AddRecipe(string name, string imageFile)
@@ -53,5 +68,8 @@ namespace SmoothieTub.ViewModels
     {
         public string Name { get; set; }
         public string ImageFile { get; set; }
+        public string Description { get; set; }
+        public List<string> Ingredients { get; set; }
+        public List<string> Instructions { get; set; }
     }
 }

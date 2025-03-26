@@ -23,7 +23,7 @@
 		<ApplicationTitle>SmoothieTub</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.smoothietub</ApplicationId>
+		<ApplicationId>com.amnksoftware.smoothietub</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -39,14 +39,13 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.png"  />
+		<MauiIcon Include="Resources\AppIcon\appicon.png" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\AppIcon\appicon.png"  BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\AppIcon\appicon.png" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -58,6 +57,19 @@
 	<PropertyGroup>
 		<GenerateLongPaths>true</GenerateLongPaths>
 		<WindowsPackageType>None</WindowsPackageType>
+		<AndroidSigningKeyStore>..\key.keystore</AndroidSigningKeyStore>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>key.keystore</AndroidSigningKeyStore>
+		<AndroidSigningStorePass>Amma@4180</AndroidSigningStorePass>
+		<AndroidSigningKeyAlias>MauiAlias</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>Amma@4180</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	
@@ -85,6 +97,11 @@
 	  <MauiXaml Update="SubCategoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	
+	<ItemGroup>
+	  <Folder Include="Resources\Images\" />
 	</ItemGroup>
 
 </Project>

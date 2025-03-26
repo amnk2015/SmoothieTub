@@ -8,7 +8,16 @@ namespace SmoothieTub.Models
 {
   public  class Category
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string ImageUrl { get; set; }
+        public List<Subcategory> Subcategories { get; set; }
+    }
+
+    public class Subcategory
+    {
         public string Name { get; set; }
         public string ImageUrl { get; set; }
     }
+
 }
