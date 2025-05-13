@@ -15,8 +15,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+        builder.ConfigureMauiHandlers(handlers =>
+        {
+#if ANDROID
+            handlers.AddHandler<BannerAdView, SmoothieTub.Platforms.Android.Handlers.BannerAdViewHandler>();
+#endif
+        });
+
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

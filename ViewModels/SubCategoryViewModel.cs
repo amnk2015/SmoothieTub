@@ -26,6 +26,7 @@ namespace SmoothieTub.ViewModels
             CategoryName = categoryName;
             Subcategories = new ObservableCollection<SubCategoryModel>();
             string paths = "https://raw.githubusercontent.com/amnk2015/imagestorage/main/";
+            string subPath = "https://raw.githubusercontent.com/amnk2015/imgstore/main/";
             // Sample data - You can replace this with Firebase data
             if (categoryName == "Health-Focused Smoothies")
             {
@@ -37,17 +38,17 @@ namespace SmoothieTub.ViewModels
             else if (categoryName == "Nutrient-Based Smoothies")
             {
                 Subcategories.Add(new SubCategoryModel { Name = "High-Protein Smoothies", ImageFile = paths + "protein.png" });
-              //  Subcategories.Add(new SubCategoryModel { Name = "Low-Calorie Smoothies", ImageFile = paths + "low_calorie.png" });
-                //Subcategories.Add(new SubCategoryModel { Name = "High-Fiber Smoothies", ImageFile = paths + "high_fiber.png" });
+                Subcategories.Add(new SubCategoryModel { Name = "Low-Calorie Smoothies", ImageFile = paths + "low_calorie.png" });
+                Subcategories.Add(new SubCategoryModel { Name = "High-Fiber Smoothies", ImageFile = paths + "high_fiber.png" });
                 //Subcategories.Add(new SubCategoryModel { Name = "Low-Sugar Smoothies", ImageFile = paths + "low_sugar.png" });
             }
-            //else if (categoryName == "Fruit-Based Smoothies")
-            //{
-            //    Subcategories.Add(new SubCategoryModel { Name = "Berry Smoothies", ImageFile = paths + "berry.png" });
-            //    Subcategories.Add(new SubCategoryModel { Name = "Tropical Smoothies", ImageFile = paths + "tropical.png" });
-            //    Subcategories.Add(new SubCategoryModel { Name = "Citrus Smoothies", ImageFile = paths + "citrus.png" });
-            //    Subcategories.Add(new SubCategoryModel { Name = "Mixed Fruit Smoothies", ImageFile = paths + "mixed_fruit.png" });
-            //}
+            else if (categoryName == "Fruit-Based Smoothies")
+             {
+                Subcategories.Add(new SubCategoryModel { Name = "Berry Smoothies", ImageFile = subPath + "berry_blast.png" });
+                 Subcategories.Add(new SubCategoryModel { Name = "Tropical Smoothies", ImageFile = subPath + "tropical.png" });
+                 Subcategories.Add(new SubCategoryModel { Name = "Citrus Smoothies", ImageFile = subPath + "citrus.png" });
+                Subcategories.Add(new SubCategoryModel { Name = "Mixed Fruit Smoothies", ImageFile = subPath + "mixed-fruit.png" });
+            }
             //else if (categoryName == "Veggie-Based Smoothies")
             //{
             //    Subcategories.Add(new SubCategoryModel { Name = "Green Smoothies", ImageFile = paths + "green.png" });

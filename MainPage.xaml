@@ -1,49 +1,54 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmoothieTub.MainPage"
-               Shell.NavBarIsVisible="False"
-             BackgroundColor="White" >
+             xmlns:ads="clr-namespace:SmoothieTub"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="5">
-            <!-- Reduced Spacing -->
+    <Grid RowDefinitions="*,50">
+        <!-- Allow ScrollView to fill space -->
 
-            <!-- Header Text with Border -->
- 
+        <!-- Scrollable Content -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="10" Spacing="5">
+
                 <Label Text="Smoothie Categories" 
                        FontSize="24" 
                        FontAttributes="Bold" 
                        HorizontalOptions="Center" 
-                       TextColor="Black"/>
-          
-            
-            <CollectionView ItemsSource="{Binding Categories}" SelectionMode="None" >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
+                       TextColor="Black" />
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="0" CornerRadius="16" HasShadow="False" Margin="0,5">
-                            <Grid>
-                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
-                                <BoxView BackgroundColor="Black" Opacity="0.4" CornerRadius="16"/>
-                                <Label Text="{Binding Name}"  FontFamily="Poppins"
-                                       FontSize="20" 
-                                       TextColor="White" 
-                                       FontAttributes="Bold"
-                                       VerticalOptions="Center" 
-                                       HorizontalOptions="Center"/>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="{Binding}" />
-                                </Grid.GestureRecognizers>
-                            </Grid>
-                     
+                <CollectionView ItemsSource="{Binding Categories}" SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
 
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0" CornerRadius="16" HasShadow="False" Margin="0,5">
+                                <Grid>
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+                                    <BoxView BackgroundColor="Black" Opacity="0.4" CornerRadius="16"/>
+                                    <Label Text="{Binding Name}"  
+                                           FontFamily="Poppins"
+                                           FontSize="20" 
+                                           TextColor="White" 
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="{Binding}" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Ad Banner -->
+        <ads:BannerAdView Grid.Row="1" HeightRequest="50" VerticalOptions="End" BackgroundColor="LightGray"/>
+    </Grid>
 </ContentPage>

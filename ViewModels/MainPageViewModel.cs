@@ -12,7 +12,7 @@ namespace SmoothieTub.ViewModels
             {
                 new CategoryModel { Name = "Health-Focused Smoothies", ImageUrl = "health_smoothies.png" },
                 new CategoryModel { Name = "Nutrient-Based Smoothies", ImageUrl = "nutrient_smoothies.png" },
-                //new CategoryModel { Name = "Fruit-Based Smoothies", ImageUrl = "fruit_smoothies.png" },
+                new CategoryModel { Name = "Fruit-Based Smoothies", ImageUrl = "fruit_smoothies.png" },
                 //new CategoryModel { Name = "Veggie-Based Smoothies", ImageUrl = "veggie_smoothies.png" },
                 //new CategoryModel { Name = "Special Diet Smoothies", ImageUrl = "diet_smoothies.png" },
                 //new CategoryModel { Name = "Meal Replacement Smoothies", ImageUrl = "meal_energy_smoothies.png" },
